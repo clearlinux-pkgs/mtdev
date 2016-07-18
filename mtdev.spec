@@ -4,7 +4,7 @@
 #
 Name     : mtdev
 Version  : 1.1.5
-Release  : 6
+Release  : 7
 URL      : http://bitmath.org/code/mtdev/mtdev-1.1.5.tar.gz
 Source0  : http://bitmath.org/code/mtdev/mtdev-1.1.5.tar.gz
 Summary  : Multitouch Protocol Translation Library
@@ -34,6 +34,7 @@ Summary: dev components for the mtdev package.
 Group: Development
 Requires: mtdev-lib
 Requires: mtdev-bin
+Provides: mtdev-devel
 
 %description dev
 dev components for the mtdev package.
@@ -51,10 +52,15 @@ lib components for the mtdev package.
 %setup -q -n mtdev-1.1.5
 
 %build
+export LANG=C
 %configure --disable-static
-make V=1 %{?_smp_mflags}
+make V=1  %{?_smp_mflags}
 
 %check
+export LANG=C
+export http_proxy=http://127.0.0.1:9/
+export https_proxy=http://127.0.0.1:9/
+export no_proxy=localhost
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
