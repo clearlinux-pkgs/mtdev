@@ -4,7 +4,7 @@
 #
 Name     : mtdev
 Version  : 1.1.5
-Release  : 11
+Release  : 12
 URL      : http://bitmath.org/code/mtdev/mtdev-1.1.5.tar.gz
 Source0  : http://bitmath.org/code/mtdev/mtdev-1.1.5.tar.gz
 Summary  : Multitouch Protocol Translation Library
