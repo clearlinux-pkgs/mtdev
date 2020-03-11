@@ -1,3 +1,72 @@
+commit 25d541d2b0b526eba58fee99ceac202acca6d4a2
+Author: Henrik Rydberg <rydberg@bitmath.se>
+Date:   Sun Jan 26 14:40:46 2020 +0100
+
+    Release mtdev-1.1.6
+    
+    Signed-off-by: Henrik Rydberg <rydberg@bitmath.se>
+
+commit 598e561881c687cea072375637aa08ac9230fabe
+Author: Khem Raj <raj.khem@gmail.com>
+Date:   Sat Nov 23 18:45:32 2019 -0800
+
+    adjust for 64bit time_t for 32bit architectures
+    
+    libc that has support for 32 bit applications to use 64 bit
+    time_t supplies __USE_TIME_BITS64 define [1]
+    
+    [1] https://sourceware.org/glibc/wiki/Y2038ProofnessDesign
+    
+    Signed-off-by: Khem Raj <raj.khem@gmail.com>
+    Signed-off-by: Henrik Rydberg <rydberg@bitmath.se>
+
+commit 5a260fa95a5e7cebdd8f9da947c8d8eb244efae0
+Author: Michael Forney <mforney@mforney.org>
+Date:   Fri Jun 7 11:29:01 2019 -0700
+
+    Use a macro for `nlongs` so it can be used in constant expression
+    
+    This way, it can be used to specify the `absbits` array size (in
+    `mtdev_configure`) without making it a VLA.
+    
+    VLAs are an optional feature in C11, and in this case we can determine
+    the array size statically.
+    
+    This also matches the macros used in libevdev and libinput.
+    
+    Signed-off-by: Michael Forney <mforney@mforney.org>
+    Signed-off-by: Henrik Rydberg <rydberg@bitmath.se>
+
+commit 5f9caa26b81155feede6ff71c9b14fa0e8980fbd
+Author: Martin Kepplinger <martink@posteo.de>
+Date:   Tue Aug 22 11:12:13 2017 +0200
+
+    mtdev-matching.c: declare global variables static
+    
+    n1 and n2 are only locally used and can thus be static.
+    
+    Signed-off-by: Martin Kepplinger <martink@posteo.de>
+
+commit d9f084c9384f99d3589cf51f8503b7aee4e9666c
+Author: Martin Kepplinger <martink@posteo.de>
+Date:   Tue Aug 22 11:12:12 2017 +0200
+
+    mtdev-mapgen.c: declare init_caps() static
+    
+    init_caps() is only locally used and can thus be static.
+    
+    Signed-off-by: Martin Kepplinger <martink@posteo.de>
+
+commit 8ba8d359392693f9882ea2d195fc1bebb8b3a29d
+Author: Martin Kepplinger <martink@posteo.de>
+Date:   Tue Aug 22 11:12:11 2017 +0200
+
+    caps.c: declare mtdev_set_slots() static
+    
+    mtdev_set_slots() is only used internally, so it should be static.
+    
+    Signed-off-by: Martin Kepplinger <martink@posteo.de>
+
 commit 4381b78fea54de0e775bf54952b2f95e5a06c57d
 Author: Henrik Rydberg <rydberg@euromail.se>
 Date:   Fri Feb 28 19:57:15 2014 +0100
