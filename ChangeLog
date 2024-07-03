@@ -1,3 +1,41 @@
+commit 9035c2225494b80b02e985fc7ee77880e0bd6993
+Author: Henrik Rydberg <rydberg@bitmath.se>
+Date:   Thu Apr 4 09:47:16 2024 +0200
+
+    Release mtdev-1.1.7
+    
+    Signed-off-by: Henrik Rydberg <rydberg@bitmath.se>
+
+commit b969a91d9c971d4cdfda72c7a7bffe63c826751b
+Author: orbea <orbea@riseup.net>
+Date:   Wed Apr 3 20:12:30 2024 -0700
+
+    test: link using libmtdev.la
+    
+    When linking internal dependencies that were linked using $(LIBTOOL) the
+    ideal method is to use the generated libtool archive (.la) file. This
+    fixes the build with slibtool which doesn't find -lmtdev during the
+    build and explicitly requires the .la file to be used.
+    
+    Note the build will not fail if libmtdev is already installed to the
+    system.
+    
+    Github PR: https://github.com/rydberg/mtdev/pull/2
+    Gentoo Issue: https://bugs.gentoo.org/928387
+    Signed-off-by: orbea <orbea@riseup.net>
+
+commit 2ed588eccf83728452ce0fc30770e637a7c1374f
+Author: Henrik Rydberg <rydberg@bitmath.se>
+Date:   Tue Dec 7 21:13:36 2021 +0100
+
+    Fix test warnings
+    
+    The unit tests were using stack-allocated memory smaller than
+    the maximum matrix size, causing compiler warnings. Fixed with
+    this patch.
+    
+    Signed-off-by: Henrik Rydberg <rydberg@bitmath.se>
+
 commit 25d541d2b0b526eba58fee99ceac202acca6d4a2
 Author: Henrik Rydberg <rydberg@bitmath.se>
 Date:   Sun Jan 26 14:40:46 2020 +0100
